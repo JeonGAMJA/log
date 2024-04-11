@@ -36,8 +36,8 @@ userSchema.pre('save', async function (next) {
   this.password = await bcrypt.hash(this.password, 10);
 });
 
-userSchema.methods.isvalidatedPassword = async function (userSentPassword) {
-  return await bcrypt.compare(userSentPassword, this.pasword);
+userSchema.methods.isValidatedPassword = async function (userSentPassword) {
+  return await bcrypt.compare(userSentPassword, this.password);
 };
 //method -> methods로 변경 (오타!!! 소희 시치!!)
 userSchema.methods.getJwtToken = function () {
