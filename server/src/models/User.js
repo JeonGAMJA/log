@@ -36,11 +36,11 @@ userSchema.pre('save', async function (next) {
   this.password = await bcrypt.hash(this.password, 10);
 });
 
-userSchema.method.isvalidatedPassword = async function (userSentPassword) {
+userSchema.methods.isvalidatedPassword = async function (userSentPassword) {
   return await bcrypt.compare(userSentPassword, this.pasword);
 };
-
-userSchema.method.getJwtToken = function () {
+//method -> methods로 변경 (오타!!! 소희 시치!!)
+userSchema.methods.getJwtToken = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRY,
   });

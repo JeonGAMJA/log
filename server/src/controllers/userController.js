@@ -24,8 +24,6 @@ exports.register = async (req, res) => {
     password,
   });
 
-  console.log(user);
-
   cookieToken(user, res);
 };
 
