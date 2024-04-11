@@ -8,13 +8,21 @@ exports.addPost = async (req, res) => {
       req.body;
 
     const post = await Post.create({
+      owner: userData.id,
       title,
-      addedContent,
+      content: addedContent,
       thumbnail,
       weather,
       feeling,
       createdAt,
       updatedAt,
     });
-  } catch (err) {}
+    res.status(200).json({
+      post,
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: 'Internal Sever Error',
+    });
+  }
 };
