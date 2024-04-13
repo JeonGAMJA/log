@@ -19,7 +19,8 @@ const Landing = () => {
       </section>
       <section>
         <IntroductionSection />
-        <button></button>
+        <button>시작하기</button>
+        //버튼 누르면 FadeOut 되면서 로그인페이지로 전환
       </section>
     </div>
   );
