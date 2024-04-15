@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MainText from '../components/Landing/MainText';
 import IntroductionSection from '../components/Landing/IntroductionSection';
+import axios from '../api/axios';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
+  useEffect(() => {
+    axios
+      .post('post', {})
+      .then((data) => console.log(data))
+      .catch((err) => console.log('111', err));
+  }, []);
+
   return (
     <div>
       <section>
@@ -19,8 +28,9 @@ const Landing = () => {
       </section>
       <section>
         <IntroductionSection />
-        <button>시작하기</button>
-        //버튼 누르면 FadeOut 되면서 로그인페이지로 전환
+        <Link to="/signup">
+          <button>시작하기</button>
+        </Link>
       </section>
     </div>
   );
